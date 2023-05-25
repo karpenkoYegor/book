@@ -36,6 +36,21 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector(".btn-next").addEventListener("click", () => {
         pageFlip.flipNext(); // Turn to the next page (with animation)
     });
+    document.querySelector(".btn-home").addEventListener("click", () => {
+        pageFlip.flip(2); // Turn to the next page (with animation)
+    });
+
+    var links = document.querySelectorAll(".link");
+    links.forEach(element => {
+        element.addEventListener("click", (e) => {
+            console.log(e.target.classList[1]);
+            pageFlip.flip(parseInt(e.target.classList[1]));
+        });
+    });
+
+    const flipPage = (numberPage) => {
+        
+    }
 
     // triggered by page turning
     pageFlip.on("flip", (e) => {
@@ -52,3 +67,5 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector(".page-orientation").innerText = e.data;
     });
 });
+
+
